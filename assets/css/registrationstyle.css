@@ -3,7 +3,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .container{
@@ -11,29 +10,26 @@ body{
     border-style: solid;
     border-radius: 25px;
     border-color: #7dfdfe;
-    box-shadow: 0 0 10px 2px #7dfdfe;
+    box-shadow: 0 0 20px 2x #7dfdfe;
     font-family: 'Bebas Neue', cursive;
     font-family: 'Saira Condensed', sans-serif;
     color: white;
     max-width: 300px;
 }
 
-#signinbtn{
+#registrationbtn{
     background-color: #FF66C4;
     box-shadow: 0 0 10px 2px #FF66C4;
     outline: none;
     color: white;
-    
 }
 
-#signinbtn:hover{
-    background-color:  #7dfdfe;;
-    color: white;
-    box-shadow: 0 0 10px 2px #7dfdfe;
+#registrationbtn:hover{
+background-color: #7dfdfe;
+color: white;
+box-shadow: 0 0 10px 2px #7dfdfe;
 }
-
 
 .col-sm{
     padding-top: 5px;
 }
-
