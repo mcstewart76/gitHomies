@@ -2,6 +2,7 @@
 //create a search textbox that allows users to search gitlabs api to find other users
 
 //https://api.github.com/users/[user]
+submitBtn = document.getElementById("search-btn")
 function friendMatch(input){
     searchBox = document.getElementById("friend-search")
     searchBox.innerHTML = '';
