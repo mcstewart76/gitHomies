@@ -61,7 +61,7 @@ function getRepos(username){
 searchButton.addEventListener("click", function() {
     getAvatar(search.value)
     getBio(search.value)
-    getRepos(search.value)
+    get(search.value)
 })
 
 // var avatar = null;
