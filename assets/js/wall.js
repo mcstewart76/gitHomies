@@ -2,3 +2,14 @@
 //create a search textbox that allows users to search gitlabs api to find other users
 
 //https://api.github.com/users/[user]
+
+
+
+
+//create pull latest repos from array list
+//get readme content for user
+var tempFrienLsit = {}
+function getGithubReadme(){
+
+
+}
