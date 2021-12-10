@@ -1,9 +1,27 @@
 var search = document.getElementById("Search");
 var searchButton = document.getElementById("SearchButton");
 var profileInfo = document.getElementById("ProfileInfo");
+var userName = data;
 
-// function getApis(username){
-//     var Url = "http://api.github.com/users/" + username;
+function getApis(username){
+    var Url = "http://api.github.com/users/" + username;
+    fetch(Url)
+    .then(response => {
+        return response.json();
+    })
+    .then(data => {
+        userData = data;
+        console.log(data);
+        console.log(data.avatar_url);
+        console.log(data.bio);
+        console.log(data.repos_url);
+        console.log(data.following_url);
+        profileInfo.textContent = data.bio
+    })
+}
+
+// function getAvatar(username){
+//     var Url = "https://api.github.com/users/" + username + "/avatar";
 //     fetch(Url)
 //     .then(response => {
 //         return response.json();
@@ -11,57 +29,41 @@ var profileInfo = document.getElementById("ProfileInfo");
 //     .then(data => {
 //         console.log(data);
 //         console.log(data.avatar_url);
+//         profileInfo.textContent = data.avatar
+//     })
+// }
+
+// function getBio(username){
+//     var Url = "https://api.github.com/users/" + username + "/bio";
+//     fetch(Url)
+//     .then(response => {
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log(data);
 //         console.log(data.bio);
-//         console.log(data.repos_url);
-//         console.log(data.following_url);
 //         profileInfo.textContent = data.bio
 //     })
 // }
 
-function getAvatar(username){
-    var Url = "https://api.github.com/users/" + username + "/avatar";
-    fetch(Url)
-    .then(response => {
-        return response.json();
-    })
-    .then(data => {
-        console.log(data);
-        console.log(data.avatar_url);
-        profileInfo.textContent = data.avatar
-    })
-}
-
-function getBio(username){
-    var Url = "https://api.github.com/users/" + username + "/bio";
-    fetch(Url)
-    .then(response => {
-        return response.json();
-    })
-    .then(data => {
-        console.log(data);
-        console.log(data.bio);
-        profileInfo.textContent = data.bio
-    })
-}
-
-function getRepos(username){
-    var Url = "https://api.github.com/users/" + username + "/repos";
-    fetch(Url)
-    .then(response => {
-        return response.json();
-    })
-    .then(data => {
-        console.log(data);
-        console.log(data.repos_url);
-        profileInfo.textContent = data.repos
-    })
-}
+// function getRepos(username){
+//     var Url = "https://api.github.com/users/" + username + "/repos";
+//     fetch(Url)
+//     .then(response => {
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log(data);
+//         console.log(data.repos_url);
+//         profileInfo.textContent = data.repos
+//     })
+// }
 
 
 searchButton.addEventListener("click", function() {
-    getAvatar(search.value)
-    getBio(search.value)
-    get(search.value)
+    // getAvatar(search.value)
+    // getBio(search.value)
+    getApis(search.value)
 })
 
 // var avatar = null;
