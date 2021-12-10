@@ -3,9 +3,12 @@
 
 //https://api.github.com/users/[user]
 function friendMatch(input){
+    searchBox = document.getElementById("friend-search")
+    searchBox.innerHTML = '';
     if (input == ''){
         return;
     }
+let icon = '';
 fetch('https://api.github.com/users/' + input).then(
     function(response){
         console.log(response)
@@ -13,3 +16,4 @@ fetch('https://api.github.com/users/' + input).then(
     })//.then(function(data)){add list items here}
 
 }
+
