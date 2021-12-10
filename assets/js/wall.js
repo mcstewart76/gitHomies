@@ -3,18 +3,19 @@
 
 //https://api.github.com/users/[user]
 submitBtn = document.getElementById("search-btn")
+.click('#search-btn', friendMatch())
 function friendMatch(input){
     searchBox = document.getElementById("friend-search")
     searchBox.innerHTML = '';
     if (input == ''){
-        return;
+        return "clicked";
     }
-let icon = '';
-fetch('https://api.github.com/users/' + input).then(
-    function(response){
-        console.log(response)
-        return response.json();  
-    })//.then(function(data)){add list items here}
-
 }
+// let icon = '';
+// fetch('https://api.github.com/users/' + input).then(
+//     function(response){
+//         console.log(response)
+//         return response.json();  
+//     })//.then(function(data)){add list items here}
 
+// }
