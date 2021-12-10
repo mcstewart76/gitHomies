@@ -1,5 +1,9 @@
 body{
     background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .container{
@@ -26,5 +30,10 @@ body{
     background-color:  #7dfdfe;;
     color: white;
     box-shadow: 0 0 10px 2px #7dfdfe;
+}
+
+
+.col-sm{
+    padding-top: 5px;
 }
 
