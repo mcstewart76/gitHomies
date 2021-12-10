@@ -24,9 +24,9 @@ function getLocalStorageArray(key) {
         //   console.log(data[i].toString())
           a8rr[i] = data[i].toString()
             // console.log(a8rr)
-            return getMessageDecoded(a8rr)
-      
+              
       }
+      return getMessageDecoded(a8rr)
 
     } catch(e){return null}
 }
