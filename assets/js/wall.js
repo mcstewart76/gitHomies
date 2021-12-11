@@ -24,7 +24,13 @@ gitHub_GetUserData_Async(textbox).then((input) => {
  console.log(login_name)
     });
 });
+//github search logic stay lit
+$("#GitHub-Search").on("click", function(event){
+    event.preventDefault();
+    console.log("its lit")
+    });
 
+    var gitButts = document.querySelectorAll('label button');
 
 $("#usernamebtn").text("localStorage.getItem('')")
 $("#usernamebtn").on("click", function(event){
