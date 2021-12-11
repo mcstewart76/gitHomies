@@ -33,6 +33,7 @@ function getLocalStorageArray(key) {
 
 
 
+
 //stores value in local storage that has been encoded
 function setLocalStorage(key, value){
       localStorage.setItem(key, getMessageEncoded(value))
