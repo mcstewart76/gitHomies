@@ -4,6 +4,7 @@
 //https://api.github.com/users/[user]
 
 
+
 // submitBtn = document.getElementById("search-btn")
 // .click('#search-btn', friendMatch())
 // function friendMatch(input){
@@ -42,3 +43,14 @@ showAvatar('ernestotham').then((val) => {
 
 
     
+
+
+
+//create pull latest repos from array list
+//get readme content for user
+var tempFrienLsit = {}
+function getGithubReadme(){
+
+
+}
+

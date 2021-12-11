@@ -15,6 +15,8 @@ function getMessageEncoded(message) {
 
   //returns and decoded array
 function getLocalStorageArray(key) {
+
+  try{
       let data = localStorage.getItem(key)
       data=data.split(',')
       let a8rr = new Uint8Array(data.length)
@@ -22,9 +24,11 @@ function getLocalStorageArray(key) {
         //   console.log(data[i].toString())
           a8rr[i] = data[i].toString()
             // console.log(a8rr)
+              
       }
-    return getMessageDecoded(a8rr)
+      return getMessageDecoded(a8rr)
 
+    } catch(e){return null}
 }
 
 

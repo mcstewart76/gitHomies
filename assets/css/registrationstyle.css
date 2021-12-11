@@ -3,7 +3,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .container{
@@ -18,23 +17,19 @@ body{
     max-width: 300px;
 }
 
-#signinbtn{
+#registrationbtn{
     background-color: #FF66C4;
     box-shadow: 0 0 10px 2px #FF66C4;
     outline: none;
     color: white;
-    size: 80px;
-    
 }
 
-#signinbtn:hover{
-    background-color:  #7dfdfe;;
-    color: white;
-    box-shadow: 0 0 10px 2px #7dfdfe;
+#registrationbtn:hover{
+background-color: #7dfdfe;
+color: white;
+box-shadow: 0 0 10px 2px #7dfdfe;
 }
-
 
 .col-sm{
     padding-top: 5px;
 }
-
