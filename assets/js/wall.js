@@ -39,5 +39,4 @@ var temp = showAvatar()
     
 
 
-
-    
+ 
