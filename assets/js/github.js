@@ -17,6 +17,7 @@ async function gitHub_GetUserData_Async(githubuser){
     var url = `https://api.github.com/users/${githubuser}`
     // console.log(url)
     let response = await fetch(url)
+   
 }
 
 async function gettestData(githubuser) {

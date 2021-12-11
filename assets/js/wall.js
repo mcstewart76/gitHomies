@@ -18,8 +18,11 @@
 $("searchHomieBTN").on("click", function(event){
 event.preventDefault();
 
-
-
+gitHub_GetUserData_Async($("#searchHomieTB")).then((val) => {
+    console.log(val)
+    
+    
+    });
 });
 
 
