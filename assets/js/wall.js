@@ -15,6 +15,13 @@
 //     }
 // }
 
+$("searchHomieBTN").on("click", function(event){
+event.preventDefault();
+
+
+
+});
+
 
 // let icon = '';
 // fetch('https://api.github.com/users/' + input).then(
@@ -48,9 +55,9 @@ showAvatar('ernestotham').then((val) => {
 
 //create pull latest repos from array list
 //get readme content for user
-var tempFrienLsit = {}
-function getGithubReadme(){
+// var tempFrienLsit = {}
+// function getGithubReadme(){
 
 
-}
+// }
 
