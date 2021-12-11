@@ -1,0 +1,75 @@
+body{
+    background-color: black;
+}
+
+.container{
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.col-3{
+   margin-left: 0px;
+   margin-right: 0px; 
+}
+
+.profile-picture{
+    max-width: 450px;
+}
+
+#propic{
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-height: 200px;
+    max-width: 200px;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 50%;
+    border-color: #7dfdfe;
+    box-shadow: 0 0 10px 2px #7dfdfe;
+}
+
+.biocard{
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #7dfdfe;
+    box-shadow: 0 0 10px 2px #7dfdfe;
+    font-family: 'Saira Condensed', sans-serif;
+    color: white;
+    text-align: center;
+    max-width: 450px;
+    max-height: 200px;
+    height: 150px;
+    font-size: x-large;
+    padding: 10px;
+}
+
+.usernamecard{
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #7dfdfe;
+    box-shadow: 0 0 10px 2px #7dfdfe;
+    font-family: 'Permanent Marker', cursive;
+    color: #FF66C4;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+.repowallcard{
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #7dfdfe;
+    box-shadow: 0 0 10px 2px #7dfdfe;
+    font-family: 'Saira Condensed', sans-serif;
+    color: white;
+    max-height: 750px;
+    height: 500px;
+    padding: 10px;
+}
