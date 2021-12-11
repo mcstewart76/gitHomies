@@ -25,15 +25,11 @@ gitHub_GetUserData_Async(textbox).then((input) => {
     });
 });
 
-$("#searchHomieBTN").on("click", function(event){
+
+$("#usernamebtn").text("localStorage.getItem('')")
+$("#usernamebtn").on("click", function(event){
     event.preventDefault();
-    var textbox = $("#searchHomieTB").val();
-    gitHub_GetUserData_Async(textbox).then((input) => {
-       // console.log(input)
-     login_name = input.login;
-     
-     console.log(login_name)
-        });
+    window.location.href = "./profilePage.html";
     });
 
 // let icon = '';
