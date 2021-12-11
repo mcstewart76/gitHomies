@@ -15,6 +15,15 @@
 //     }
 // }
 
+$("#searchHomieBTN").on("click", function(event){
+event.preventDefault();
+var textbox = $("#searchHomieTB").val();
+gitHub_GetUserData_Async(textbox).then((input) => {
+    console.log(input)
+ 
+    });
+});
+
 
 // let icon = '';
 // fetch('https://api.github.com/users/' + input).then(
@@ -26,13 +35,13 @@
 // }
 
 
-var card = $("#avatarimage")
+// var card = $("#avatarimage")
 
-showAvatar('ernestotham').then((val) => {
-    console.log(val)
-    card.append(`<a class="navbar-brand" href="#"><img id=homieavatar src=${val} alt="avatar"></a>`)
+// showAvatar('ernestotham').then((val) => {
+//     console.log(val)
+//     card.append(`<a class="navbar-brand" href="#"><img id=homieavatar src=${val} alt="avatar"></a>`)
     
-    });
+//     });
     
 
 
@@ -48,9 +57,9 @@ showAvatar('ernestotham').then((val) => {
 
 //create pull latest repos from array list
 //get readme content for user
-var tempFrienLsit = {}
-function getGithubReadme(){
+// var tempFrienLsit = {}
+// function getGithubReadme(){
 
 
-}
+// }
 
