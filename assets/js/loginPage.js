@@ -1,14 +1,10 @@
 //setting variables
-var attempt = 3;
+var attempt = 5;
 var userName = $('#exampleUsername1')
 var passwd = $('#exampleInputPassword1')
 var usernameBL = $('#exampleUsername')
+var usernameHelpEl = $('#usernameHelp')
 var loginBtn = $('#signinbtn')
-// var userNameStored = getLocalStorageArray(user)
-// console.log(userNameStored)
-
-// var passwdStored = getLocalStorageArray(userName.val())
-
 
 function validate() {
     var passwdStored = getLocalStorageArray(userName.val())
@@ -17,14 +13,14 @@ function validate() {
     if ( passwd.val() === passwdStored) {
         // usernameHelpLBL.text("Login Success");
         console.log("passwds match logic check")
-        window.location = "wallUI.html"; // redirect to main page
+        window.location.href = '/wallUI.html'; // redirect to main page
         return false;
     }
     else{
         attempt --;//Decrement attempts allowed
         console.log(attempt);
-        // usernameLBL.text("You have "+attempt+" left");
-        console.log("You have "+attempt+" left");
+        usernameHelpEl.text("Username or Password not recognized. You have "+attempt+" attempts left");
+        // console.log("You have "+attempt+" left");
 
         if( attempt == 0) {
             userName.disabled = true;
@@ -32,11 +28,13 @@ function validate() {
             loginBtn.disabled = true;
             return false;
         }
+        return true;
     }
 }
 
 
-loginBtn.on('click',function() {
+loginBtn.on('click',function(e) {
+    e.preventDefault();
     console.log("button was clicked")
     validate()
 })
