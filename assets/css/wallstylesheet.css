@@ -103,10 +103,8 @@ body{
 }
 
 #GitHub-Search{
-    background-color: #FF66C4;
-    box-shadow: 0 0 10px 2px #FF66C4;
     outline: none;
-    color: white;
+    color: #FF66C4;
     align-items: center;
 }
 
@@ -117,10 +115,8 @@ body{
 }
 
 #GitLab-Search{
-    background-color: #FF66C4;
-    box-shadow: 0 0 10px 2px #FF66C4;
     outline: none;
-    color: white;
+    color: #FF66C4;
     align-items: center;
 }
 
