@@ -2,16 +2,17 @@
 var attempt = 3;
 var userName = $('#exampleUsername1')
 var passwd = $('#exampleInputPassword1')
-var usernameHelpLBL = $('#usernameHelp')
+var usernameBL = $('#exampleUsername')
 var loginBtn = $('#signinbtn')
 // var userNameStored = getLocalStorageArray(user)
 // console.log(userNameStored)
 
-var passwdStored = getLocalStorageArray(userName.val())
+// var passwdStored = getLocalStorageArray(userName.val())
 
 
 function validate() {
-    console.log(passwd.val)
+    var passwdStored = getLocalStorageArray(userName.val())
+    console.log(passwd.val())
     console.log(passwdStored)
     if ( passwd.val() === passwdStored) {
         usernameHelpLBL.text("Login Success");
@@ -21,7 +22,7 @@ function validate() {
     else{
         attempt --;//Decrement attempts allowed
         console.log(attempt);
-        usernameHelpLBL.text("You have "+attempt+" left");
+        usernameLBL.text("You have "+attempt+" left");
 
         if( attempt == 0) {
             userName.disabled = true;
@@ -34,5 +35,6 @@ function validate() {
 
 
 loginBtn.on('click',function() {
+    console.log("button was clicked")
     validate()
 })

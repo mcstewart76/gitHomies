@@ -28,7 +28,7 @@ registrationBtn.on('click',function(event){
     else if(IsUserRegistered(usernameTb.val())===0){
         setLocalStorage(usernameTb.val(),passwordTb.val())
         console.log("user registered")
-        writeCookie('session',usernameTb,1)
+        // writeCookie('session',usernameTb,1)
         window.location.href = "./demopageUI.html";
         
     }
