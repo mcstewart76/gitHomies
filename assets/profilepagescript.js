@@ -1,8 +1,9 @@
 var search = document.getElementById("Search");
 var searchButton = document.getElementById("SearchButton");
 var profileInfo = document.getElementById("ProfileInfo");
-var userName = data;
+var userName = ("jack-bartlett");
 
+// Make Api Request for User Information
 function getApis(username){
     var Url = "http://api.github.com/users/" + username;
     fetch(Url)
@@ -20,44 +21,21 @@ function getApis(username){
     })
 }
 
-// function getAvatar(username){
-//     var Url = "https://api.github.com/users/" + username + "/avatar";
-//     fetch(Url)
-//     .then(response => {
-//         return response.json();
-//     })
-//     .then(data => {
-//         console.log(data);
-//         console.log(data.avatar_url);
-//         profileInfo.textContent = data.avatar
-//     })
+// let githubresponse = await fetch('http://api.github.com/users/${user}');
+// let githubUser = await githubResponse.json();
+
+// return githubUser.avatar_url;
+// return githubUser.bio;
+// return githubUser.repos_url;
 // }
 
-// function getBio(username){
-//     var Url = "https://api.github.com/users/" + username + "/bio";
-//     fetch(Url)
-//     .then(response => {
-//         return response.json();
-//     })
-//     .then(data => {
-//         console.log(data);
-//         console.log(data.bio);
-//         profileInfo.textContent = data.bio
-//     })
+// var card = $("avatarimage")
+
+// showAvatar('jack-bartlett').then(val) => {
+//     console.log(val)
+//     card.append
 // }
 
-// function getRepos(username){
-//     var Url = "https://api.github.com/users/" + username + "/repos";
-//     fetch(Url)
-//     .then(response => {
-//         return response.json();
-//     })
-//     .then(data => {
-//         console.log(data);
-//         console.log(data.repos_url);
-//         profileInfo.textContent = data.repos
-//     })
-// }
 
 
 searchButton.addEventListener("click", function() {
@@ -71,41 +49,7 @@ searchButton.addEventListener("click", function() {
 // var repos = null;
 
 
-// // Make api request for user Avatar information
-// async function getAvatar(username){
-//     var Url = "https://api.github.com/users/" + username + "/avatar";
-//     return await fetch(Url)
-//     .then(response => {
-//         return response.json();
-//     })
-//     .then(data => {
-//         return data;
-//     })
-// }
 
-// // Make api request for user Bio information
-// async function getBio(username){
-//     var Url = "https://api.github.com/users/" + username + "/bio";
-//     return await fetch(Url)
-//     .then(response => {
-//         return response.json();
-//     })
-//     .then(data => {
-//         return data;
-//     })
-// }
-
-// // Make api request for user Repo information
-// async function getRepos(username){
-//     var Url = "https://api.github.com/users/" + username + "/repos";
-//     return await fetch(Url)
-//     .then(response => {
-//         return response.json();
-//     })
-//     .then(data => {
-//         return data;
-//     })
-// }
 
 // // Render HTML element for list of repos
 // function renderRepos(username, repos) {
