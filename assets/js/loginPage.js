@@ -15,14 +15,16 @@ function validate() {
     console.log(passwd.val())
     console.log(passwdStored)
     if ( passwd.val() === passwdStored) {
-        usernameHelpLBL.text("Login Success");
+        // usernameHelpLBL.text("Login Success");
+        console.log("passwds match logic check")
         window.location = "wallUI.html"; // redirect to main page
         return false;
     }
     else{
         attempt --;//Decrement attempts allowed
         console.log(attempt);
-        usernameLBL.text("You have "+attempt+" left");
+        // usernameLBL.text("You have "+attempt+" left");
+        console.log("You have "+attempt+" left");
 
         if( attempt == 0) {
             userName.disabled = true;
