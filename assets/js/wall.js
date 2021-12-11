@@ -33,11 +33,10 @@ showAvatar('ernestotham').then((val) => {
     
     });
     
-
-
     
 
-
+var temp = showAvatar()
+    
 
 
 
