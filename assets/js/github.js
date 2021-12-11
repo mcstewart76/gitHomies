@@ -23,34 +23,9 @@ async function gitHub_GetUserData_Async(githubuser){
    
 }
 
-async function gettestData(githubuser) {
-    let response = await fetch(`https://api.github.com/users/${githubuser}`);
-    let data = await response.json()
-    return data;
-  }
-  
-  
-  
-//   async function writetoconsole(){
-//         // getData is a promise
-
-//         console.log("test1")
-//         console.log(gettestData('ernestotham')
-
-//       }
-  
-
-
-
-// gitHub_GetUserData_Async('ernestotham').then((resp) => { console.log("got user data")
-// console.log(resp)
-// console.log("done")})
-
-
-
 async function gitHub_GetFollowers_Async(githubuser){
     var url = 'https://api.github.com/users/'+githubuser+'/followers'
-
+    
     try {
     	const response = await fetch(url)
     	const data = await response.json()
@@ -111,3 +86,29 @@ async function showAvatar(user) {
   }
   
 //   var avatar = showAvatar('ernestotham');
+
+
+
+
+// async function gettestData(githubuser) {
+//     let response = await fetch(`https://api.github.com/users/${githubuser}`);
+//     let data = await response.json()
+//     return data;
+//   }
+  
+  
+  
+//   async function writetoconsole(){
+//         // getData is a promise
+
+//         console.log("test1")
+//         console.log(gettestData('ernestotham')
+
+//       }
+  
+
+
+
+// gitHub_GetUserData_Async('ernestotham').then((resp) => { console.log("got user data")
+// console.log(resp)
+// console.log("done")})

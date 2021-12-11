@@ -30,6 +30,7 @@ body{
     width:100%;
     justify-content: center;
     margin-bottom: 30px;
+    padding: 10px;
 }
 
 body{
@@ -63,6 +64,7 @@ body{
     color: white;
     background-color: black;
     height: 725px;
+    padding: 10px;
 }
 
 .col-3{
@@ -95,6 +97,30 @@ body{
 }
 
 #usernamebtn:hover{
+    background-color:  #7dfdfe;;
+    color: white;
+    box-shadow: 0 0 10px 2px #7dfdfe;
+}
+
+#GitHub-Search{
+    outline: none;
+    color: #FF66C4;
+    align-items: center;
+}
+
+#GitHub-Search:hover{
+    background-color:  #7dfdfe;;
+    color: white;
+    box-shadow: 0 0 10px 2px #7dfdfe;
+}
+
+#GitLab-Search{
+    outline: none;
+    color: #FF66C4;
+    align-items: center;
+}
+
+#GitLab-Search:hover{
     background-color:  #7dfdfe;;
     color: white;
     box-shadow: 0 0 10px 2px #7dfdfe;

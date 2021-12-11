@@ -19,9 +19,10 @@
 <body>
 
   <nav class="navbar" id="wallid">
-    <a class="navbar-brand" href="#">
+    <button id="logobtn" type="button" class="btn btn-link btn-lg"><a class="navbar-brand" href="#">
       <img src="assets/images/gitHomies (300 x 100 px).png" alt="logo">
     </a>
+  </button>
     <div class="username" style="justify-content: right;">
       <h2>
         <button id="usernamebtn" type="button" class="btn btn-link btn-lg">username</button>
@@ -47,15 +48,19 @@
             <div class="card-body">
               <form>
                 <div class="col-sm">
-                  <div class="form-group">
-                    <label for="searchHomie">GitHub Search</label>
+                  <div class="form-group" >
+                    <label for="searchHomie">
+                      <button id="GitHub-Search" type="button" class="btn btn-link btn-sm">GitHub Search</button>
+                      /
+                      <button id="GitLab-Search" type="button" class="btn btn-link btn-sm">GitLab Search</button>
+                    </label>
                     <input type="searchHomie" class="form-control" id="searchHomieTB" aria-describedby="SearchHelp"
                       placeholder="Enter Homie Github ID">
                   </div>
                 </div>
       
                 <div class="text-center">
-                  <button id="searchHomieBTN" type="searchHomieBtn" class="btn btn-link">Search Homie</button>
+                  <button id="SearchHomieBTN" type="searchHomieBtn" class="btn btn-link btn-lg">Search Homie</button>
                 </div>
               </form>
             </div>
