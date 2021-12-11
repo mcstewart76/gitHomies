@@ -1,6 +1,7 @@
 //setting variables
 var attempt = 5;
 var userName = $('#exampleUsername1')
+var id = userName.val()
 var passwd = $('#exampleInputPassword1')
 var usernameBL = $('#exampleUsername')
 var usernameHelpEl = $('#usernameHelp')
@@ -33,11 +34,17 @@ function validate() {
 }
 
 
+//function to set username to variable
+function setusername() {
+    localStorage.setItem('idName',userName.val());
+}
+
 //add logic to write variable to local storage on login success.
 
 
 loginBtn.on('click',function(e) {
     e.preventDefault();
     console.log("button was clicked")
+    setusername()
     validate()
 })
