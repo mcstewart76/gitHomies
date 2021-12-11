@@ -15,13 +15,12 @@
 //     }
 // }
 
-$("searchHomieBTN").on("click", function(event){
+$("#searchHomieBTN").on("click", function(event){
 event.preventDefault();
-
-gitHub_GetUserData_Async($("#searchHomieTB")).then((val) => {
-    console.log(val)
-    
-    
+var textbox = $("#searchHomieTB").val();
+gitHub_GetUserData_Async(textbox).then((input) => {
+    console.log(input)
+ 
     });
 });
 
@@ -36,13 +35,13 @@ gitHub_GetUserData_Async($("#searchHomieTB")).then((val) => {
 // }
 
 
-var card = $("#avatarimage")
+// var card = $("#avatarimage")
 
-showAvatar('ernestotham').then((val) => {
-    console.log(val)
-    card.append(`<a class="navbar-brand" href="#"><img id=homieavatar src=${val} alt="avatar"></a>`)
+// showAvatar('ernestotham').then((val) => {
+//     console.log(val)
+//     card.append(`<a class="navbar-brand" href="#"><img id=homieavatar src=${val} alt="avatar"></a>`)
     
-    });
+//     });
     
 
 
