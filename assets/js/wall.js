@@ -19,8 +19,10 @@ $("#searchHomieBTN").on("click", function(event){
 event.preventDefault();
 var textbox = $("#searchHomieTB").val();
 gitHub_GetUserData_Async(textbox).then((input) => {
-    console.log(input)
+   // console.log(input)
+ login_name = input.login;
  
+ console.log(login_name)
     });
 });
 
