@@ -35,8 +35,6 @@ async function gitHub_GetFollowers_Async(githubuser){
        console.log(err)
     }
 
-    
-
 }
 
 
