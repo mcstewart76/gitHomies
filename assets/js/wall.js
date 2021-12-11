@@ -4,7 +4,6 @@
 //https://api.github.com/users/[user]
 
 
-
 // submitBtn = document.getElementById("search-btn")
 // .click('#search-btn', friendMatch())
 // function friendMatch(input){
@@ -45,14 +44,9 @@ gitHub_GetUserData_Async(textbox).then((input) => {
     
 //     });
     
-
-
     
 
-
-
-
-
+var temp = showAvatar()
     
 
 
