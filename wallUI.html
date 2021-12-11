@@ -48,12 +48,47 @@
 
 <!-- sidebar -->
 
-    <div class="sidebsr">
-      <div id= "MayAvatar-picture" class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title" id=avatarName>Name place holder</h5>
-            <h6 class="card-subtitle mb-2 text-muted" id="avatarDescription">description place holder</h6>
-            <div id="avatarimage"></div>
+  <!-- sidebar -->
+  <main>
+    <div class=container-fluid>
+      <div class="row">
+        <div class="col-3">
+          <div class="sidebsr">
+            <div id="MyAvatar-picture" class="card">
+              <div class="card-body">
+                <h5 class="card-title" id=avatarName>Name place holder</h5>
+                <h6 class="card-subtitle mb-2 text-muted" id="avatarDescription">description place holder</h6>
+                <div class="text-center" id="avatarimage"></div>
+              </div>
+            </div>
+          </div>
+          <div id="findHomies" class="card">
+            <div class="card-body">
+              <form>
+                <div class="col-sm">
+                  <div class="form-group">
+                    <label for="searchHomie">GitHub Search</label>
+                    <input type="searchHomie" class="form-control" id="searchHomieTB" aria-describedby="SearchHelp"
+                      placeholder="Enter Homie Github ID">
+                  </div>
+                </div>
+      
+                <div class="text-center">
+                  <button id="searchHomieBTN" type="searchHomieBtn" class="btn btn-link">Search Homie</button>
+                </div>
+              </form>
+            </div>
+          </div>
+      
+          <div class="sidebsr">
+            <div id="onlineHomies" class="card">
+              <div class="card-body">
+                <h5 class="card-title">myHomies</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                  content.</p>
+              </div>
+            </div>
           </div>
         </div>
      </div>
