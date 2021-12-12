@@ -63,7 +63,8 @@ body{
     font-family: 'Saira Condensed', sans-serif;
     color: white;
     background-color: black;
-    height: 725px;
+    
+    /* height: 725px; ernesto removed height */
     padding: 10px;
 }
 
@@ -91,7 +92,7 @@ body{
     text-align: center;
 }
 
-#usernamebtn{
+#usernamebtn,th,td{
     color:#FF66C4;
     font-family: 'Permanent Marker', cursive;
 }

@@ -45,6 +45,8 @@ async function gitHub_GetFollowing_Async(githubuser){
     	const response = await fetch(url)
     	const data = await response.json()
         console.log(data)
+        return data
+
     } catch (err) {
        console.log(err)
     }
@@ -61,6 +63,7 @@ async function gitHub_GetUserRepos_Async(githubuser){
     	const response = await fetch(url)
     	const data = await response.json()
         console.log(data)
+        return data
     } catch (err) {
        console.log(err)
     }
@@ -78,6 +81,20 @@ async function gitHub_GetRepoCollabs_Async(githubuser){
     return githubCollab
    
 }
+
+
+async function gitHub_GetReadme_MD_Async(githubuser, repo){
+    var url = `https://raw.githubusercontent.com/${githubuser}/${repo}/main/README.md`
+    // console.log(url)
+    let response = await fetch(url)
+    let readmeMD = await response.json();
+    // console.log(githubCollab)
+    return readmeMD
+   
+}
+
+
+
 
 
 async function showAvatar(user) {
