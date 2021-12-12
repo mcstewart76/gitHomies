@@ -63,9 +63,10 @@ body{
     font-family: 'Saira Condensed', sans-serif;
     color: white;
     background-color: black;
-    overflow: scroll;
+    overflow: auto;
     height: 725px; 
     padding: 10px;
+    margin-right: 0px;
 }
 
 .col-3{
