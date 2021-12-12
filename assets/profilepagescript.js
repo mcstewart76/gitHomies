@@ -1,7 +1,8 @@
 var search = document.getElementById("Search");
 var searchButton = document.getElementById("SearchButton");
 var profileInfo = document.getElementById("ProfileInfo");
-var userName = ("jack-bartlett");
+var userName = search.value;
+
 
 // Make Api Request for User Information
 function getApis(username){
