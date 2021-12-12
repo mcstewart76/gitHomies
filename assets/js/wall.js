@@ -43,7 +43,7 @@ gitHub_GetRepoCollabs_Async(item).then((input) => {
     // console.log(input[0].login)
     $.each(input, function(i, item) {
         console.log(item.login);
-        $("#collabs").append("<div>itemlogin</div>");
+        $("#collabs").append("<div></div>");
         $("#collabs").append(item.login)  //toying with 
     });
 });
