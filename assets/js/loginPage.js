@@ -39,7 +39,7 @@ function setusername() {
     localStorage.setItem('idName',userName.val());
 }
 
-//add logic to write variable to local storage on login success.
+//add logic for check on logged in state (i.e. auth) so that when logged in or out its checked.
 
 
 loginBtn.on('click',function(e) {

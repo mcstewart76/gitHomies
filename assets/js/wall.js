@@ -38,10 +38,12 @@ $("#usernamebtn").on("click", function(event){
 $(document).ready(function(e) {
 var item = localStorage.getItem('idName')
 gitHub_GetRepoCollabs_Async(item).then((input) => {
-    // collabs = input.login;    
+    // collabs = input.login;   
+    localStorage.setItem('collabs', JSON.stringify(input)); 
     // console.log(input[0].login)
     $.each(input, function(i, item) {
         console.log(item.login);
+        
         $("#collabs").append("<div></div>");
         $("#collabs").append(item.login)  //toying with 
         ;
