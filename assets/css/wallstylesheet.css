@@ -63,8 +63,8 @@ body{
     font-family: 'Saira Condensed', sans-serif;
     color: white;
     background-color: black;
-    
-    /* height: 725px; ernesto removed height */
+    overflow: scroll;
+    height: 725px; 
     padding: 10px;
 }
 
