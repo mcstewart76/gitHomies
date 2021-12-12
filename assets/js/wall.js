@@ -35,8 +35,7 @@ $("#usernamebtn").on("click", function(event){
 
 // Mike adding for collab card
 
-$("#collabs").on("click", function(e) {
-    e.preventDefault();
+$(document).ready(function(e) {
 var item = localStorage.getItem('idName')
 gitHub_GetRepoCollabs_Async(item).then((input) => {
     // collabs = input.login;    
@@ -45,6 +44,7 @@ gitHub_GetRepoCollabs_Async(item).then((input) => {
         console.log(item.login);
         $("#collabs").append("<div></div>");
         $("#collabs").append(item.login)  //toying with 
+        ;
     });
 });
 });
