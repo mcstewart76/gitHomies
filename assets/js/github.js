@@ -69,7 +69,15 @@ async function gitHub_GetUserRepos_Async(githubuser){
 
 }
 
-
+async function gitHub_GetRepoCollabs_Async(githubuser){
+    var url = `https://api.github.com/repos/${githubuser}/gitHomies/contributors?`
+    // console.log(url)
+    let response = await fetch(url)
+    let githubCollab = await response.json();
+    // console.log(githubCollab)
+    return githubCollab
+   
+}
 
 
 async function showAvatar(user) {

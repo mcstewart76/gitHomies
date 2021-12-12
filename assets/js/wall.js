@@ -32,6 +32,27 @@ $("#usernamebtn").on("click", function(event){
     window.location.href = "./profilePage.html";
     });
 
+
+// Mike adding for collab card
+
+$("#collabs").text(collabs).on("click", function(e) {
+    e.preventDefault();
+var item = localStorage.getItem('idName')
+gitHub_GetRepoCollabs_Async(item).then((input) => {
+    // collabs = input.login;    
+    // console.log(input[0].login)
+    var collabs = $.each(input, function(i, item) {
+        console.log(item.login);
+        $("#collabs").text(collabs)
+    });
+});
+});
+
+
+// Mike adding for collab card
+
+
+
 // let icon = '';
 // fetch('https://api.github.com/users/' + input).then(
 //     function(response){
