@@ -32,7 +32,7 @@ $("#GitHub-Search").on("click", function(event){
 
     var gitButts = document.querySelectorAll('label button');
 
-$("#usernamebtn").text("localStorage.getItem('')")
+$("#usernamebtn").text(localStorage.getItem('idName'))
 $("#usernamebtn").on("click", function(event){
     event.preventDefault();
     window.location.href = "./profilePage.html";
