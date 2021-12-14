@@ -1,52 +1,45 @@
-// gitHub_GetUserData_Async(textbox).then((input) => {
-//     // console.log(input)
-//   login_name = input.login;
-  
-//   console.log(login_name)
-//      });
 
 
- 
-
-
-
-    //  var collabs = JSON.parse(localStorage.getItem('collabs'))
-  
-
-
-    // collabs.forEach(element => {
-        
-
-    //     console.log(element.login)
-    //     gitHub_GetUserRepos_Async(element.login).then((repos) => {  
+    // let tmp
+    // gitHub_GetUserRepos_Async('ernestotham').then((repos) => {  
             
+    //         tmp = repos
+    //     for(var i = 0; i < repos.length; i++)  {      
+    //         console.log("homie: "+repos[i].owner.login);
+    //         console.log("repo name: "+repos[i].name);
+    //         console.log("repo description: "+repos[i].description);
+    //         console.log("repo created: "+repos[i].created_at);
+    //         console.log("repo url: "+repos[i].svn_url);
+    //         console.log("repo watchers: "+repos[i].watchers_count);
+    //         console.log("repo branch: "+repos[i].default_branch);
+    //         console.log(`readme url: https://raw.githubusercontent.com/${repos[i].owner.login}/${repos[i].name}/${repos[i].default_branch}/README.md`);
+
+    //         var owner = `${repos[i].owner.login}`
+    //         var repo = `${repos[i].name}`
+    //         var branch = `${repos[i].default_branch}`
             
-    //         for(var i = 0; i < repos.length; i++)  {      
-    //             console.log("homie: "+JSON.stringify(repos[i].login));
-    //             console.log("repo name: "+repos.name);
-    //             console.log("repo description: "+repos.description);
-    //             console.log("repo created: "+repos.created_at);
-    //             console.log("repo url: "+repos.svn_url);
-    //             console.log("repo watchers: "+repos.watchers_count);
-    //             console.log(`readme url: https://raw.githubusercontent.com/${repos.login}/${repos.name}/main/README.md`);
-
-    //              }
+    //         gitHub_GetReadme_MD_Async2(owner, repo, branch).then((readme) => { 
         
+    //             console.log(readme)
+               
+    //         })
         
-        
-        
-        
-    //     })})
-       
+            
+    //          }
+    
+    
+            
+    
+    
+    // })
 
 
-    // repos.name
 
 
-    let tmp
+
     gitHub_GetUserRepos_Async('ernestotham').then((repos) => {  
             
-            tmp = repos
+            
         for(var i = 0; i < repos.length; i++)  {      
             console.log("homie: "+repos[i].owner.login);
             console.log("repo name: "+repos[i].name);
@@ -54,19 +47,76 @@
             console.log("repo created: "+repos[i].created_at);
             console.log("repo url: "+repos[i].svn_url);
             console.log("repo watchers: "+repos[i].watchers_count);
-            console.log(`readme url: https://raw.githubusercontent.com/${repos[i].owner.login}/${repos[i].name}/main/README.md`);
-
+            try{
+            console.log(`readme url: https://raw.githubusercontent.com/${repos[i].owner.login}/${repos[i].name}/${repos[i].default_branch}/README.md`);
+            }
+            catch (err) {
+              console.log("readme does not exit")
+           }
             
-            gitHub_GetReadme_MD_Async(`${repos[i].owner.login}`, `${repos[i].name}`).then((val) => {
-
-                console.log(val)
-
-            })
-            
-             }
+        
+            gitHub_GetReadme_MD_Async2(`${repos[i].owner.login}`, `${repos[i].name}`, `${repos[i].default_branch}`).then((readme) => { 
     
-    
+              console.log(readme.toString())
+
+              repoText = readme.toString().split()
+              console.log(typeof repoText)
+
+              var html = `<tr>
+                  <th scope="row">1</th>
+                        <td>
+
+                            <div id="HomiesRepo" class="card">
+                              <div class="card-body">
+                              <h5 class="repo-title">Repo: ${repos[i].name}</h5>
+                              <h6 class="repo-subtitle mb-2 text-muted">Description: ${repos[i].description}</h6>
+                              <h5 class="repo-title">Owner: ${repos[i].owner.login}</h5>
+                              <h5 class="repo-title">Date: ${repos[i].created_at}</h5>
+                              <h5 class="repo-title">Link: ${repos[i].svn_url}</h5>
+                              <h5 class="repo-title">Watch Count: ${repos[i].watchers_count}</h5>
+                                
+                              </div>
+                            </div>
+
+                            </td>
+                            <td>
+                        
+
+                            <div id="onlineHomies" class="card">
+                              <div class="card-body">
+                                <h5 class="repo-title">ReadMe</h5>
+                                
+                                <section id="readme" class="card-text text-center">
+                                <p>${repoText}</p>
+                                </section>
+                              </div>
+                            </div>
+
+
+                      </td>`
+
+
+            $(".demo").append(html)
             
+
+                                                             
+          })
+
+            
+
+
+
+            // totalcount++  
+
+
+
+             } //end for loop
+    
+           
+    
     
     
     })
+
+
+   
