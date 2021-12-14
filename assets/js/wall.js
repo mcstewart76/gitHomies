@@ -26,9 +26,23 @@ gitHub_GetUserData_Async(textbox).then((input) => {
  console.log(login_name)
     });
 });
-
-
-$("#usernamebtn").text("localStorage.getItem('')")
+//github search logic stay lit, appends class to use below
+$("#GitHub-Search").on("click", function(event){
+    event.preventDefault();
+    console.log("its lit")
+    $("#GitHub-Search").addClass("githubHovered")
+    $("#GitLab-Search").removeClass("gitlabHovered")
+    });
+//gitlab search stays lit, appends class to use below
+$("#GitLab-Search").on("click", function(event){
+    event.preventDefault();
+    console.log("its lit")
+    $("#GitHub-Search").removeClass("githubHovered")
+    $("#GitLab-Search").addClass("gitlabHovered")
+    });
+var gitButts = document.querySelectorAll('label button');
+//appends username to top right of wall page, allows onclick to redirect to profile page
+$("#usernamebtn").text(localStorage.getItem('idName'))
 $("#usernamebtn").on("click", function(event){
     event.preventDefault();
     window.location.href = "./profilePage.html";
