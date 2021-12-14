@@ -82,16 +82,33 @@ async function gitHub_GetRepoCollabs_Async(githubuser){
    
 }
 
-
-async function gitHub_GetReadme_MD_Async(githubuser, repo){
-    var url = `https://raw.githubusercontent.com/${githubuser}/${repo}/main/README.md`
+//testing this new function
+async function gitHub_GetReadme_MD_Async(githubuser, repo, branch){
+    var url = `https://raw.githubusercontent.com/${githubuser}/${repo}/${branch}/README.md`
     // console.log(url)
     let response = await fetch(url)
-    let readmeMD = await response.json();
+    let readmeMD = await response;
     // console.log(githubCollab)
     return readmeMD
    
 }
+
+//testing this new function
+async function gitHub_GetReadme_MD_Async2(githubuser, repo, branch){
+
+    try{
+    var url = `https://raw.githubusercontent.com/${githubuser}/${repo}/${branch}/README.md`
+    // console.log(url)
+    let response = await fetch(url)
+    let readmeMD = await response.text();
+    // console.log(githubCollab)
+    return readmeMD
+    }
+    catch (err) {
+        console.log(err)
+     }
+}
+
 
 
 

@@ -1,46 +1,3 @@
-// gitHub_GetUserData_Async(textbox).then((input) => {
-//     // console.log(input)
-//   login_name = input.login;
-  
-//   console.log(login_name)
-//      });
-
-
- 
-
-
-
-    //  var collabs = JSON.parse(localStorage.getItem('collabs'))
-  
-
-
-    // collabs.forEach(element => {
-        
-
-    //     console.log(element.login)
-    //     gitHub_GetUserRepos_Async(element.login).then((repos) => {  
-            
-            
-    //         for(var i = 0; i < repos.length; i++)  {      
-    //             console.log("homie: "+JSON.stringify(repos[i].login));
-    //             console.log("repo name: "+repos.name);
-    //             console.log("repo description: "+repos.description);
-    //             console.log("repo created: "+repos.created_at);
-    //             console.log("repo url: "+repos.svn_url);
-    //             console.log("repo watchers: "+repos.watchers_count);
-    //             console.log(`readme url: https://raw.githubusercontent.com/${repos.login}/${repos.name}/main/README.md`);
-
-    //              }
-        
-        
-        
-        
-        
-    //     })})
-       
-
-
-    // repos.name
 
 
     let tmp
@@ -54,14 +11,19 @@
             console.log("repo created: "+repos[i].created_at);
             console.log("repo url: "+repos[i].svn_url);
             console.log("repo watchers: "+repos[i].watchers_count);
-            console.log(`readme url: https://raw.githubusercontent.com/${repos[i].owner.login}/${repos[i].name}/main/README.md`);
+            console.log("repo branch: "+repos[i].default_branch);
+            console.log(`readme url: https://raw.githubusercontent.com/${repos[i].owner.login}/${repos[i].name}/${repos[i].default_branch}/README.md`);
 
+            var owner = `${repos[i].owner.login}`
+            var repo = `${repos[i].name}`
+            var branch = `${repos[i].default_branch}`
             
-            gitHub_GetReadme_MD_Async(`${repos[i].owner.login}`, `${repos[i].name}`).then((val) => {
-
-                console.log(val)
-
+            gitHub_GetReadme_MD_Async2(owner, repo, branch).then((readme) => { 
+        
+                console.log(readme)
+               
             })
+        
             
              }
     
@@ -70,3 +32,7 @@
     
     
     })
+
+
+
+   

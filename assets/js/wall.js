@@ -78,46 +78,61 @@ var collabs = JSON.parse(localStorage.getItem('collabs'))
                 console.log("repo created: "+repos[i].created_at);
                 console.log("repo url: "+repos[i].svn_url);
                 console.log("repo watchers: "+repos[i].watchers_count);
-                console.log(`readme url: https://raw.githubusercontent.com/${repos[i].owner.login}/${repos[i].name}/main/README.md`);
-
-
-                //append results to html
+                try{
+                console.log(`readme url: https://raw.githubusercontent.com/${repos[i].owner.login}/${repos[i].name}/${repos[i].default_branch}/README.md`);
+                }
+                catch (err) {
+                  console.log("readme does not exit")
+               }
                 
-                var html = `<tr>
-                <th scope="row">${totalcount}</th>
-                <td>
+            
+                gitHub_GetReadme_MD_Async2(`${repos[i].owner.login}`, `${repos[i].name}`, `${repos[i].default_branch}`).then((readme) => { 
+        
+                  console.log(readme.toString())
 
-                  <div id="HomiesRepo" class="card">
-                    <div class="card-body">
-                      <h5 class="repo-title">Repo: ${repos[i].name}</h5>
-                      <h6 class="repo-subtitle mb-2 text-muted">Description: ${repos[i].description}</h6>
-                      <h5 class="repo-title">Owner: ${repos[i].owner.login}</h5>
-                      <h5 class="repo-title">Date: ${repos[i].created_at}</h5>
-                      <h5 class="repo-title">Link: ${repos[i].svn_url}</h5>
-                      <h5 class="repo-title">Watch Count: ${repos[i].watchers_count}</h5>
-                      
-                    </div>
-                  </div>
+                  repoText = readme.toString().split()
+                  console.log(typeof repoText)
 
-                </td>
-                <td>
-                  
+                  var html = `<tr>
+                      <th scope="row">${totalcount}</th>
+                            <td>
 
-                  <div id="onlineHomies" class="card">
-                    <div class="card-body">
-                      <h5 class="repo-title">ReadMe</h5>
-                      
-                      <section id="readme" class="card-text text-center">
-                      <iframe src="https://github.com/ernestotham/ET-WorkDayScheduler#readme" width="400" height="400"></iframe>
-                      </section>
-                    </div>
-                  </div>
+                                <div id="HomiesRepo" class="card">
+                                  <div class="card-body">
+                                  <h5 class="repo-title">Repo: ${repos[i].name}</h5>
+                                  <h6 class="repo-subtitle mb-2 text-muted">Description: ${repos[i].description}</h6>
+                                  <h5 class="repo-title">Owner: ${repos[i].owner.login}</h5>
+                                  <h5 class="repo-title">Date: ${repos[i].created_at}</h5>
+                                  <h5 class="repo-title">Link: ${repos[i].svn_url}</h5>
+                                  <h5 class="repo-title">Watch Count: ${repos[i].watchers_count}</h5>
+                                    
+                                  </div>
+                                </div>
+
+                                </td>
+                                <td>
+                            
+
+                                <div id="onlineHomies" class="card">
+                                  <div class="card-body">
+                                    <h5 class="repo-title">ReadMe</h5>
+                                    
+                                    <section id="readme" class="card-text text-center">
+                                    <p>${repoText}</p>
+                                    </section>
+                                  </div>
+                                </div>
 
 
-                </td>`
+                          </td>`
 
 
                 $(".HomieReposTBLBody").append(html)
+                
+
+                                                                 
+              })
+
                 
 
 
