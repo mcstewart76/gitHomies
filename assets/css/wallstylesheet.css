@@ -63,8 +63,10 @@ body{
     font-family: 'Saira Condensed', sans-serif;
     color: white;
     background-color: black;
-    height: 725px;
+    overflow: auto;
+    height: 725px; 
     padding: 10px;
+    margin-right: 0px;
 }
 
 .col-3{
@@ -91,7 +93,7 @@ body{
     text-align: center;
 }
 
-#usernamebtn{
+#usernamebtn,th,td{
     color:#FF66C4;
     font-family: 'Permanent Marker', cursive;
 }
