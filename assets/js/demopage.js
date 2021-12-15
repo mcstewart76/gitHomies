@@ -100,7 +100,7 @@ gitHub_GetUserRepos_Async('ernestotham').then((repos) => {
                           <h5 class="repo-title">ReadMe</h5>
                           
                           <section id="readme" class="card-text text-center">
-                          <p>${Freadme}</p>
+                          <p></p>
                           </section>
                         </div>
                       </div>
@@ -119,6 +119,30 @@ gitHub_GetUserRepos_Async('ernestotham').then((repos) => {
 
 
 })
+
+
+
+
+
+function get_readme(){
+
+var url = 'https://raw.githubusercontent.com/mcstewart76/gitHomies/main/README.md'
+
+let response = fetch(url)
+    // let readmeMD = await response;
+    // console.log(githubCollab)
+    
+    response.then(response => { 
+      console.log(response)
+      console.log(response.statusText)
+    })
+    response.catch(error => {
+      console.error(error)
+    })
+
+}
+
+
 
 
 
