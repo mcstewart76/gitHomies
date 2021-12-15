@@ -6,6 +6,7 @@ var passwd = $('#exampleInputPassword1')
 var usernameBL = $('#exampleUsername')
 var usernameHelpEl = $('#usernameHelp')
 var loginBtn = $('#signinbtn')
+var registerBtn = $('#registrationbtn')
 
 function validate() {
     var passwdStored = getLocalStorageArray(userName.val())
@@ -47,4 +48,9 @@ loginBtn.on('click',function(e) {
     console.log("button was clicked")
     setusername()
     validate()
+})
+
+registerBtn.on('click',function(e) {
+    e.preventDefault();
+    window.location.href = '/registration.html'
 })
