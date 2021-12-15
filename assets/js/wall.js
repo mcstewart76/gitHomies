@@ -185,7 +185,8 @@ var collabs = JSON.parse(localStorage.getItem('collabs'))
                         console.log(await response.statusText)
                           html2 = `${await response.toString().split()}`
                           console.log()
-                          await document.querySelectorAll("#readme")[totalcount-1].append(html2)
+                          var tag = document.querySelectorAll("#readme")[totalcount-1]
+                          tag.append(html2)
                       })
                       response.catch(error => {
                         console.error(error)
