@@ -33,10 +33,11 @@ body{
     padding: 10px;
 }
 
-body{
-    /* background-color: black; */
+/* body{
+    /* background-color: black; 
+}*/
 
-}
+
 
 #homieavatar{
     
@@ -93,7 +94,7 @@ body{
     text-align: center;
 }
 
-#usernamebtn,th,td{
+#usernamebtn,th,td,.homie-found, .add-friend{
     color:#FF66C4;
     font-family: 'Permanent Marker', cursive;
 }
@@ -126,6 +127,16 @@ body{
     background-color:  #7dfdfe;;
     color: white;
     box-shadow: 0 0 10px 2px #7dfdfe;
+}
+.gitlabHovered, .githubHovered{
+    background-color:  #7dfdfe;;
+    color: white;
+    box-shadow: 0 0 10px 2px #7dfdfe;
+}
+.homie-found, .add-friend{
+    background-color:  #7dfdfe;;
+    color: black;
+    box-shadow: 0 0 10px 2px #7dfdfe; 
 }
 
 footer{
