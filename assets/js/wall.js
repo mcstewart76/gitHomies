@@ -102,9 +102,21 @@ gitHub_GetRepoCollabs_Async(item).then((input) => {
         $("#collabs").append(`<div id="${login_name}">${item.login}</div>`);
         //$("#collabs").append(item.login)  //toying with 
         ;
+// $(document).ready(() => {
+//         var item = localStorage.getItem('idName');
+//         gitHub_GetRepoCollabs_Async(item).then((input) => {
+//             // collabs = input.login;   
+//             localStorage.setItem('collabs', JSON.stringify(input));
+//             // console.log(input[0].login)
+//             $.each(input, function (i, item) {
+//                 console.log(item.login);
+
+//                 $("#collabs").append(`<div>${item.login}</div>`);
+//                 //$("#collabs").append(item.login)  //toying with 
+//                 ;
+            });
+        });
     });
-});
-});
 
 
 // Mike adding for collab card

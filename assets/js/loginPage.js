@@ -6,6 +6,7 @@ var passwd = $('#exampleInputPassword1')
 var usernameBL = $('#exampleUsername')
 var usernameHelpEl = $('#usernameHelp')
 var loginBtn = $('#signinbtn')
+var registerBtn = $('#registrationbtn')
 
 function validate() {
     var passwdStored = getLocalStorageArray(userName.val())
@@ -39,12 +40,30 @@ function setusername() {
     localStorage.setItem('idName',userName.val());
 }
 
-//add logic for check on logged in state (i.e. auth) so that when logged in or out its checked.
+
+//function to begin validation of session
+//check on logged in state (i.e. auth) so that if navigating to different tab the session no longer exists.
+
+function beginSession() {
+    sessionStorage.setItem('isLoggedIn',userName.val());
+}
+
+function setPageName() {
+    sessionStorage.setItem('pageName','login');
+}
 
 
 loginBtn.on('click',function(e) {
     e.preventDefault();
     console.log("button was clicked")
     setusername()
+    setPageName()
+    beginSession()
     validate()
+})
+
+//function to redirect to registration page if no username created
+registerBtn.on('click',function(e) {
+    e.preventDefault();
+    window.location.href = '/registration.html'
 })
