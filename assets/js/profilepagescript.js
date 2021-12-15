@@ -1,6 +1,5 @@
 var search = document.getElementById("Search");
 var searchButton = document.getElementById("SearchButton");
-var gitLabSearchButton = document.getElementById("gitLabSearchButton");
 var bioCard = document.getElementById("biocard");
 var userName = search.value;
 var proPic = document.getElementById("propic");
@@ -10,11 +9,6 @@ var userRepos = document.getElementById("repowallcard");
 searchButton.addEventListener("click", function() {
     searchfunction(search.value)
 })
-
-gitLabSearchButton.addEventListener("click", function() {
-    gitlabearchfunction(search.value)
-})
-
 
 // calls search function passing parameter of the getApis function 
 async function searchfunction(gitusername) {
