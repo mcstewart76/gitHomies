@@ -45,6 +45,10 @@ $("#SearchHomieBTN").on("click", function(event){
             $(".add-friend").on("click", function(event){
                 event.preventDefault();
                 console.log("homie added")
+                if($(`#${login_name}`).length === 0){
+                    $("#collabs").append(`<div id="${login_name}">${login_name}</div>`);
+                }
+                
             });
         });
     }    
@@ -94,8 +98,8 @@ gitHub_GetRepoCollabs_Async(item).then((input) => {
     // console.log(input[0].login)
     $.each(input, function(i, item) {
         console.log(item.login);
-        
-        $("#collabs").append(`<div>${item.login}</div>`);
+        var login_name = item.login;
+        $("#collabs").append(`<div id="${login_name}">${item.login}</div>`);
         //$("#collabs").append(item.login)  //toying with 
         ;
     });
