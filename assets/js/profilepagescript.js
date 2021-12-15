@@ -1,20 +1,24 @@
 var search = document.getElementById("Search");
 var searchButton = document.getElementById("SearchButton");
 var bioCard = document.getElementById("biocard");
-var userName = search.value;
+var userName = localStorage.getItem('idName');
 var proPic = document.getElementById("propic");
 var userRepos = document.getElementById("repowallcard");
 
 // adds event listener to button id
-searchButton.addEventListener("click", function() {
-    searchfunction(search.value)
-})
+// searchButton.addEventListener("click", function() {
+//     searchfunction(localStorage.getItem('idName'))
+// })
+
+searchfunction(localStorage.getItem('idName'))
+
 
 // calls search function passing parameter of the getApis function 
 async function searchfunction(gitusername) {
     getApis(gitusername);
     var Repos = await getRepos(gitusername);
     renderRepos(Repos);
+    $("#Search").text(gitusername);
 }
 
 // Make Api Request for User Information and renders bio and avatar info
@@ -58,7 +62,10 @@ function renderRepos(repos){
         userRepos.appendChild(eleContainer);
         }
 }
-
+$("#gitHomiesLogo").on("click", function(event){
+    event.preventDefault();
+    window.location.href = "./wallUI.html";
+    });
 
 
 
