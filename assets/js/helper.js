@@ -48,3 +48,27 @@ function IsUserRegistered(user) {
 
 }
 
+
+//function to check if user came to page from same session login was initiated from.
+
+
+$(document).ready(() => {
+    var loggedIn = sessionStorage.getItem('isLoggedIn');
+    // console.log("loggedIn var = " +loggedIn)   
+    var url = "./loginPageUI.html";
+    var pageName = sessionStorage.getItem('pageName');
+    var location = window.location.href;
+    // console.log("page auth test")
+    // console.log(window.location.href)
+    // console.log(location)
+    // console.log("pageName = " +sessionStorage.getItem('pageName'))
+    if (loggedIn === null && ((pageName === null)) && !location.includes("login")) {
+      console.log("log in was not verified");
+      window.location.href = url;
+
+    }
+  })
+
+
+
+
