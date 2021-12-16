@@ -187,7 +187,7 @@ collabs.forEach(element => {
                               <td>
                           
         
-                              <div id="onlineHomies" class="card">
+                              <div id="onlineHomies"  class="card ">
                                 <div class="card-body">
                                   <h5 class="repo-title">ReadMe</h5>
                                   
