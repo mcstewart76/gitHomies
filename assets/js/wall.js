@@ -1,19 +1,3 @@
-//create a search textbox that allows users to search githubs api to find other users
-//create a search textbox that allows users to search gitlabs api to find other users
-
-//https://api.github.com/users/[user]
-
-
-// submitBtn = document.getElementById("search-btn")
-// .click('#search-btn', friendMatch())
-// function friendMatch(input){
-//     searchBox = document.getElementById("friend-search")
-//     searchBox.innerHTML = '';
-//     if (input == ''){
-//         return "clicked";
-//     }
-// }
-
 
 //Search Functionality
 $("#SearchHomieBTN").on("click", function(event){
