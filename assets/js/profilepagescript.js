@@ -22,8 +22,8 @@ async function searchfunction(gitusername) {
 }
 
 // Make Api Request for User Information and renders bio and avatar info
-function getApis(username){
-    var Url = "http://api.github.com/users/" + username;
+function getApis(userName){
+    var Url = "http://api.github.com/users/" + userName;
     fetch(Url)
     .then(response => {
         return response.json();
