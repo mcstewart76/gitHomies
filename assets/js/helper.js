@@ -62,7 +62,7 @@ $(document).ready(() => {
     // console.log(window.location.href)
     // console.log(location)
     // console.log("pageName = " +sessionStorage.getItem('pageName'))
-    if (loggedIn === null && ((pageName === null)) && !location.includes("login")) {
+    if (loggedIn === null && ((pageName === null)) && !location.includes("login") && !location.includes("registration") && !location.includes("index")) {
       console.log("log in was not verified");
       window.location.href = url;
 
