@@ -15,7 +15,6 @@ $("#SearchHomieBTN").on("click", function(event){
             var friendbtn = `<button  class="btn btn-link btn-sm homie-found mx-auto justify-content-center m-2 ${login_name}">${login_name}</button>`
             var addFriend = ` <button class="btn btn-link btn-sm add-friend mx-auto justify-content-center">+</button>`
             
-            
             if($(`.${login_name}`).length === 0){
                 $("#homieBtns").empty();
                 $("#homieBtns").append(friendbtn);
