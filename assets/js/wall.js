@@ -149,7 +149,9 @@ $(document).ready(function (e) {
         // collabs = input.login;
         if (localStorage.getItem("collabs") === null) {
             localStorage.setItem('collabs', JSON.stringify(input));
+            
         }
+        
         var collabs = JSON.parse(localStorage.getItem("collabs"));
        // console.log(collabs)
         console.log(input)
@@ -162,7 +164,7 @@ $(document).ready(function (e) {
             
         });
         
-
+        wallDisplay();
     });
     var friendsLab = JSON.parse(localStorage.getItem("friendsLab"));
     console.log(friendsLab)
@@ -183,85 +185,89 @@ $(document).ready(function (e) {
 //Ernesto working on Wall content for Homie repos
 
 //step 1  get homies from local storage
-var collabs = JSON.parse(localStorage.getItem('collabs'))
+function wallDisplay () {
+    
+    
 
-let totalcount = 0
-collabs.forEach(element => {
+    var collabs = JSON.parse(localStorage.getItem('collabs'))
 
-    //console.log(element.login)
-    ////////////////////////////////////////
-    gitHub_GetUserRepos_Async(element.login).then((repos) => {
+    let totalcount = 0
+    collabs.forEach(element => {
 
-
-        for (var i = 0; i < repos.length; i++) {
-            // console.log("homie: " + repos[i].owner.login);
-            // console.log("repo name: " + repos[i].name);
-            // console.log("repo description: " + repos[i].description);
-            // console.log("repo created: " + repos[i].created_at);
-            // console.log("repo url: " + repos[i].svn_url);
-            // console.log("repo watchers: " + repos[i].watchers_count);
-            try {
-                //console.log(`readme url: https://raw.githubusercontent.com/${repos[i].owner.login}/${repos[i].name}/${repos[i].default_branch}/README.md`);
-            }
-            catch (err) {
-                //console.log("readme does not exit")
-            }
-
-            let htmlrepoinfo = `<h5 class="repo-title">Repo: ${repos[i].name}</h5>
-               <h6 class="repo-subtitle mb-2 text-muted">Description: ${repos[i].description}</h6>
-               <h5 class="repo-title">Owner: ${repos[i].owner.login}</h5>
-               <h5 class="repo-title">Date: ${repos[i].created_at}</h5>
-               <h5 class="repo-title">Link: ${repos[i].svn_url}</h5>
-               <h5 class="repo-title">Watch Count: ${repos[i].watchers_count}</h5>`
-            //console.log(htmlrepoinfo)
-            totalcount++
-            //console.log(totalcount)
-
-            gitHub_GetReadme_MD_Async2(`${repos[i].owner.login}`, `${repos[i].name}`, `${repos[i].default_branch}`).then((readme) => {
-
-                //console.log(readme.toString())
-                //  console.log(`${repos[i].name}`)
-
-                repoText = readme.toString().split()
-                //console.log(readme)
+        //console.log(element.login)
+        ////////////////////////////////////////
+        gitHub_GetUserRepos_Async(element.login).then((repos) => {
 
 
-                var html = `<tr>
-                    <th scope="row"></th>
-                          <td>
-        
-                              <div id="HomiesRepo" class="card">
-                                <div class="card-body">
-                                ${htmlrepoinfo}
-                                  
+            for (var i = 0; i < repos.length; i++) {
+                // console.log("homie: " + repos[i].owner.login);
+                // console.log("repo name: " + repos[i].name);
+                // console.log("repo description: " + repos[i].description);
+                // console.log("repo created: " + repos[i].created_at);
+                // console.log("repo url: " + repos[i].svn_url);
+                // console.log("repo watchers: " + repos[i].watchers_count);
+                try {
+                    //console.log(`readme url: https://raw.githubusercontent.com/${repos[i].owner.login}/${repos[i].name}/${repos[i].default_branch}/README.md`);
+                }
+                catch (err) {
+                    //console.log("readme does not exit")
+                }
+
+                let htmlrepoinfo = `<h5 class="repo-title">Repo: ${repos[i].name}</h5>
+                <h6 class="repo-subtitle mb-2 text-muted">Description: ${repos[i].description}</h6>
+                <h5 class="repo-title">Owner: ${repos[i].owner.login}</h5>
+                <h5 class="repo-title">Date: ${repos[i].created_at}</h5>
+                <h5 class="repo-title">Link: ${repos[i].svn_url}</h5>
+                <h5 class="repo-title">Watch Count: ${repos[i].watchers_count}</h5>`
+                //console.log(htmlrepoinfo)
+                totalcount++
+                //console.log(totalcount)
+
+                gitHub_GetReadme_MD_Async2(`${repos[i].owner.login}`, `${repos[i].name}`, `${repos[i].default_branch}`).then((readme) => {
+
+                    //console.log(readme.toString())
+                    //  console.log(`${repos[i].name}`)
+
+                    repoText = readme.toString().split()
+                    //console.log(readme)
+
+
+                    var html = `<tr>
+                        <th scope="row"></th>
+                            <td>
+            
+                                <div id="HomiesRepo" class="card">
+                                    <div class="card-body">
+                                    ${htmlrepoinfo}
+                                    
+                                    </div>
                                 </div>
-                              </div>
-        
-                              </td>
-                              <td>
-                          
-        
-                              <div id="onlineHomies"  class="card ">
-                                <div class="card-body">
-                                  <h5 class="repo-title">ReadMe</h5>
-                                  
-                                  <section id="readme" class="card-text text-center">
-                                  <p>${repoText}</p>
-                                  </section>
+            
+                                </td>
+                                <td>
+                            
+            
+                                <div id="onlineHomies"  class="card ">
+                                    <div class="card-body">
+                                    <h5 class="repo-title">ReadMe</h5>
+                                    
+                                    <section id="readme" class="card-text text-center">
+                                    <p>${repoText}</p>
+                                    </section>
+                                    </div>
                                 </div>
-                              </div>
-        
-        
-                        </td>`
+            
+            
+                            </td>`
 
-                $(".HomieReposTBLBody").append(html)
+                    $(".HomieReposTBLBody").append(html)
 
-            }) //asyn function
+                }) //asyn function
 
-        } //end for loop         
-    })
-    ////////////////////////////////////////
-});
+            } //end for loop         
+        })
+        ////////////////////////////////////////
+    });
 
-
+}
 
