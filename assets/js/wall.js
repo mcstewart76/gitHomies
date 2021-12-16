@@ -57,12 +57,62 @@ $("#SearchHomieBTN").on("click", function (event) {
     }
 
     if ($("#GitLab-Search").hasClass("gitlabHovered")) {
-        var textbox = $("#searchHomieTB").val();
-        gitLab_GetUserData_Async(textbox).then((input) => {
-            // console.log(input)
-            login_name = input.login;
+        var search = $("#searchHomieTB").val();
+        searchGitLabFriends(search).then((input) => {
+             console.log(input[0])
+            loginLab = input[0].username;
+            urlLab = input[0].web_url ;
+            //console.log(loginLab)
+            var friendbtn = `<button  class="btn btn-link btn-sm homie-found mx-auto justify-content-center m-2 ${loginLab}">${loginLab}</button>`
+            var addFriend = ` <button class="btn btn-link btn-sm add-friend mx-auto justify-content-center">+</button>`
 
-            console.log(login_name);
+            if ($(`.${loginLab}Lab`).length === 0) {
+                $("#homieBtns").empty();
+                $("#homieBtns").append(friendbtn);
+                $("#homieBtns").append(addFriend);
+            }
+
+            $(".homie-found").on("click", function (event) {
+                event.preventDefault();
+                window.location.href = `${urlLab}`;
+            });
+            $(".add-friend").hover(function () {
+                $(this).html("Add Homie");
+            }, function () {
+                $(this).html("+");
+            });
+            $(".add-friend").on("click", function (event) {
+                event.preventDefault();
+                console.log("homie added")
+                if ($(`#${loginLab}Lab`).length === 0) {
+                    $("#collabs").append(`<div id="${loginLab}Lab">${loginLab} (GitLab)</div>`);
+                    if(localStorage.getItem('friendsLab', JSON.stringify(input)) === null){
+                        localStorage.setItem('friendsLab', JSON.stringify(input))
+                    }else{
+                        var itemsGatheredLab = JSON.parse(localStorage.getItem("friendsLab"))
+                        console.log(itemsGathered)
+                        itemsGatheredLab.push(input)
+                        localStorage.setItem("friendsLab", JSON.stringify(itemsGatheredLab))
+                    }
+                    
+                    // gitHub_GetUserData_Async(`${login_name}`).then((input) => {
+                    //     // console.log(input)
+                    //     login_name = input.login;
+                    //     console.log(login_name)
+                    //     var itemsGathered = JSON.parse(localStorage.getItem("collabs"))
+                    //     console.log(itemsGathered)
+                    //     itemsGathered.push(input)
+                    //     localStorage.setItem("collabs", JSON.stringify(itemsGathered))
+
+                    // });
+
+                } else {
+                    var existHomie = ` <div class="btn btn-sm add-friend my-2">${loginLab} is already a homie</div>`
+                    $("#homieBtns").empty();
+                    $("#homieBtns").append(existHomie);
+                }
+
+            });
         });
     }
 });
@@ -93,34 +143,38 @@ $("#usernamebtn").on("click", function (event) {
 // Mike adding for collab card
 
 $(document).ready(function (e) {
+    
     var item = localStorage.getItem('idName')
     gitHub_GetRepoCollabs_Async(item).then((input) => {
         // collabs = input.login;
         if (localStorage.getItem("collabs") === null) {
             localStorage.setItem('collabs', JSON.stringify(input));
         }
-
+        var collabs = JSON.parse(localStorage.getItem("collabs"));
+       // console.log(collabs)
+        console.log(input)
         // console.log(input[0].login)
         collabs.forEach(item => {
-            console.log(item.login);
-            var login_name = item.login;
-            $("#collabs").append(`<div id="${login_name}">${item.login}</div>`);
+           // console.log(item.login);
+            var loginName = item.login;
+            $("#collabs").append(`<div id="${loginName}">${item.login}</div>`);
             //$("#collabs").append(item.login)  //toying with 
-            ;
-            // $(document).ready(() => {
-            //         var item = localStorage.getItem('idName');
-            //         gitHub_GetRepoCollabs_Async(item).then((input) => {
-            //             // collabs = input.login;   
-            //             localStorage.setItem('collabs', JSON.stringify(input));
-            //             // console.log(input[0].login)
-            //             $.each(input, function (i, item) {
-            //                 console.log(item.login);
-
-            //                 $("#collabs").append(`<div>${item.login}</div>`);
-            //                 //$("#collabs").append(item.login)  //toying with 
-            //                 ;
+            
         });
+        
+
     });
+    var friendsLab = JSON.parse(localStorage.getItem("friendsLab"));
+    console.log(friendsLab)
+    if(friendsLab !== null){
+    friendsLab.forEach(input => { 
+            console.log(input)
+            var loginLab = input.username;
+            console.log(loginLab)
+            $("#collabs").append(`<div id="${loginLab}Lab">${loginLab} (GitLab)</div>`);
+    });
+    
+    };
 });
 
 
