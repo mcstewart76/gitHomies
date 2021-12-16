@@ -15,4 +15,5 @@ A user provided that they wanted a social media collaboration tool for developer
 
 >**Picture of the site**
 
-![This webpage includes a unique session authentication, utilizes API calls from gitHub and gitLab](./assets/images/gitHomiesDisplayPhoto.JPG)
+![This webpage includes a unique session authentication, utilizes API calls from gitHub and gitLab]
+<img src="https://github.com/mcstewart76/gitHomies/raw/main/assets/images/gitHomiesDisplayPhoto.JPG">
