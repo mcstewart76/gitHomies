@@ -57,7 +57,7 @@ async function gitHub_GetFollowing_Async(githubuser){
 
 
 async function gitHub_GetUserRepos_Async(githubuser){
-    var url = 'https://api.github.com/users/'+githubuser+'/repos'
+    var url = 'https://api.github.com/users/'+githubuser+'/repos?sort=pushed&per_page=4'
 
     try {
     	const response = await fetch(url)

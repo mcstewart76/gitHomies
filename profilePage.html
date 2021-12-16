@@ -14,7 +14,7 @@
 
   <nav class="navbar">
     <a class="navbar-brand" href="#">
-      <button type="button" class="btn btn-link">
+      <button type="button" class="btn btn-link" id="gitHomiesLogo">
         <img id="logo" src="assets/images/gitHomiesLogo.png"alt="logo">
       </button>
     </a>
@@ -24,21 +24,19 @@
     <div class="row">
       <div class="col-3">
         <div class="profile-picture">
-          <img id="propic" src="assets/images/DakotaTheDog.png" alt="profilepicture" class="rounded-circle rounded mx-auto d-block">
+          <img id="propic" src="assets/images/profilepicture.png" alt="profilepicture" class="rounded-circle rounded mx-auto d-block">
         </div>
-        <div class="biocard">
-          bio goes here 
-          "Hello, this is dog. I like to people watch and eat human food.
-          My favorite toy is my twisty bone. Please pet if you see me."
+        <div class="biocard" id="biocard">
+          Bio
         </div>
       </div>
       <div class="col-9">
         <div class="usernamecard">
-          <h1 class="username">
-            Username</h1>
+          <div type = "text" id = "Search" ></div>
+          <!-- <button type = "button" id = "SearchButton">Search</button> -->
+           
         </div>
-        <div class="repowallcard">
-          Repos go here
+        <div class="repowallcard" id="repowallcard">
         </div>
       </div>
     </div>
@@ -49,5 +47,6 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="./assets/js/profilepagescript.js"></script>
 </body>
 </html>
