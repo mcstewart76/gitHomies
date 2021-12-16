@@ -146,3 +146,10 @@ footer{
     color:#FF66C4;
     margin: 10px;
 }
+#onlineHomies{
+    max-width: 800px;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}

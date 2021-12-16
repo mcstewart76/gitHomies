@@ -1,4 +1,4 @@
-var githubUserData = '';
+var gitlabUserData = '';
 function searchGitLabFriends(username){
     var Url = "https://gitlab.com/api/v4/users?username="+username;
     fetch(Url)
@@ -8,7 +8,7 @@ function searchGitLabFriends(username){
     .then(data => {
         console.log(data);
         console.log(data.login);
-        githubUserData = data;
+        gitlabUserData = data;
     })
 }
 
