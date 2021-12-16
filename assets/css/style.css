@@ -1,1 +1,65 @@
-.jumbotron
+body{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container{
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #7dfdfe;
+    box-shadow: 0 0 10px 2px #7dfdfe;
+    color: white;
+    max-width: 500px;
+}
+
+#signinbtn{
+    background-color: #FF66C4;
+    box-shadow: 0 0 10px 2px #FF66C4;
+    outline: none;
+    color: white;
+    size: 80px;
+    
+}
+
+#signinbtn:hover{
+    background-color:  #7dfdfe;;
+    color: white;
+    box-shadow: 0 0 10px 2px #7dfdfe;
+}
+
+#registerbtn{
+    background-color: #FF66C4;
+    box-shadow: 0 0 10px 2px #FF66C4;
+    outline: none;
+    color: white;
+    size: 80px;
+    
+}
+
+#registerbtn:hover{
+    background-color:  #7dfdfe;;
+    color: white;
+    box-shadow: 0 0 10px 2px #7dfdfe;
+}
+
+
+.col-sm{
+    padding-top: 5px;
+}
+
+.homies{
+    color: #FF66C4;
+    font-family: 'Permanent Marker', cursive;
+}
+.textbox{
+    font-family: 'Saira Condensed', sans-serif;
+}
+
+.bluish{
+    color: #FF66C4;
+    font-family: 'Permanent Marker', cursive;
+}
