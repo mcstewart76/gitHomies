@@ -65,6 +65,7 @@ body{
     color: white;
     background-color: black;
     overflow: auto;
+    overflow-x: auto;
     height: 725px; 
     padding: 10px;
     margin-right: 0px;
