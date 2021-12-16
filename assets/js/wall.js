@@ -28,11 +28,16 @@ $("#SearchHomieBTN").on("click", function(event){
             userURL = input.html_url;
             console.log(login_name);
             console.log(userURL)
-            var friendbtn = `<button  class="btn btn-link btn-sm homie-found m-2">${login_name}</button>`
-            var addFriend = ` <button class="btn btn-link btn-sm add-friend ">+</button>`
+            var friendbtn = `<button  class="btn btn-link btn-sm homie-found mx-auto justify-content-center m-2 ${login_name}">${login_name}</button>`
+            var addFriend = ` <button class="btn btn-link btn-sm add-friend mx-auto justify-content-center">+</button>`
             
-            $("#homieBtns").append(friendbtn);
-            $("#homieBtns").append(addFriend);
+            
+            if($(`.${login_name}`).length === 0){
+                $("#homieBtns").empty();
+                $("#homieBtns").append(friendbtn);
+                $("#homieBtns").append(addFriend);
+            }
+            
                 $(".homie-found").on("click", function(event){
                     event.preventDefault();
                     window.location.href = `${userURL}`;
@@ -47,7 +52,11 @@ $("#SearchHomieBTN").on("click", function(event){
                 console.log("homie added")
                 if($(`#${login_name}`).length === 0){
                     $("#collabs").append(`<div id="${login_name}">${login_name}</div>`);
-                }
+                }else{
+                var existHomie = ` <div class="btn btn-sm add-friend my-2">${login_name} is already a homie</div>`
+                $("#homieBtns").empty();
+                $("#homieBtns").append(existHomie);
+            }
                 
             });
         });
@@ -79,7 +88,7 @@ $("#GitLab-Search").on("click", function(event){
     $("#GitHub-Search").removeClass("githubHovered")
     $("#GitLab-Search").addClass("gitlabHovered")
     });
-var gitButts = document.querySelectorAll('label button');
+//var gitButts = document.querySelectorAll('label button');
 //appends username to top right of wall page, allows onclick to redirect to profile page
 $("#usernamebtn").text(localStorage.getItem('idName'))
 $("#usernamebtn").on("click", function(event){
