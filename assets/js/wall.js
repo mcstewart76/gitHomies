@@ -1,19 +1,3 @@
-//create a search textbox that allows users to search githubs api to find other users
-//create a search textbox that allows users to search gitlabs api to find other users
-
-//https://api.github.com/users/[user]
-
-
-// submitBtn = document.getElementById("search-btn")
-// .click('#search-btn', friendMatch())
-// function friendMatch(input){
-//     searchBox = document.getElementById("friend-search")
-//     searchBox.innerHTML = '';
-//     if (input == ''){
-//         return "clicked";
-//     }
-// }
-
 
 //Search Functionality
 $("#SearchHomieBTN").on("click", function(event){
@@ -28,11 +12,16 @@ $("#SearchHomieBTN").on("click", function(event){
             userURL = input.html_url;
             console.log(login_name);
             console.log(userURL)
-            var friendbtn = `<button  class="btn btn-link btn-sm homie-found m-2">${login_name}</button>`
-            var addFriend = ` <button class="btn btn-link btn-sm add-friend ">+</button>`
+            var friendbtn = `<button  class="btn btn-link btn-sm homie-found mx-auto justify-content-center m-2 ${login_name}">${login_name}</button>`
+            var addFriend = ` <button class="btn btn-link btn-sm add-friend mx-auto justify-content-center">+</button>`
             
-            $("#homieBtns").append(friendbtn);
-            $("#homieBtns").append(addFriend);
+            
+            if($(`.${login_name}`).length === 0){
+                $("#homieBtns").empty();
+                $("#homieBtns").append(friendbtn);
+                $("#homieBtns").append(addFriend);
+            }
+            
                 $(".homie-found").on("click", function(event){
                     event.preventDefault();
                     window.location.href = `${userURL}`;
@@ -45,6 +34,25 @@ $("#SearchHomieBTN").on("click", function(event){
             $(".add-friend").on("click", function(event){
                 event.preventDefault();
                 console.log("homie added")
+                if($(`#${login_name}`).length === 0){
+                    $("#collabs").append(`<div id="${login_name}">${login_name}</div>`);
+                    gitHub_GetUserData_Async(`${login_name}`).then((input) => {
+                        // console.log(input)
+                            login_name = input.login;
+                            console.log(login_name)
+                        var itemsGathered = JSON.parse(localStorage.getItem("collabs"))
+                   console.log(itemsGathered)
+                   itemsGathered.push(input)
+                   localStorage.setItem("collabs", JSON.stringify(itemsGathered))
+                            
+                    });
+                   
+                }else{
+                var existHomie = ` <div class="btn btn-sm add-friend my-2">${login_name} is already a homie</div>`
+                $("#homieBtns").empty();
+                $("#homieBtns").append(existHomie);
+            }
+                
             });
         });
     }    
@@ -75,7 +83,7 @@ $("#GitLab-Search").on("click", function(event){
     $("#GitHub-Search").removeClass("githubHovered")
     $("#GitLab-Search").addClass("gitlabHovered")
     });
-var gitButts = document.querySelectorAll('label button');
+
 //appends username to top right of wall page, allows onclick to redirect to profile page
 $("#usernamebtn").text(localStorage.getItem('idName'))
 $("#usernamebtn").on("click", function(event){
@@ -86,18 +94,33 @@ $("#usernamebtn").on("click", function(event){
 
 // Mike adding for collab card
 
-$(document).ready(() => {
-        var item = localStorage.getItem('idName');
-        gitHub_GetRepoCollabs_Async(item).then((input) => {
-            // collabs = input.login;   
-            localStorage.setItem('collabs', JSON.stringify(input));
-            // console.log(input[0].login)
-            $.each(input, function (i, item) {
-                console.log(item.login);
+$(document).ready(function(e) {
+var item = localStorage.getItem('idName')
+gitHub_GetRepoCollabs_Async(item).then((input) => {
+    // collabs = input.login;
+    if(localStorage.getItem("collabs").length <= 0 ){
+      localStorage.setItem('collabs', JSON.stringify(input));   
+    }   
+    
+    // console.log(input[0].login)
+    collabs.forEach(item => {
+        console.log(item.login);
+        var login_name = item.login;
+        $("#collabs").append(`<div id="${login_name}">${item.login}</div>`);
+        //$("#collabs").append(item.login)  //toying with 
+        ;
+// $(document).ready(() => {
+//         var item = localStorage.getItem('idName');
+//         gitHub_GetRepoCollabs_Async(item).then((input) => {
+//             // collabs = input.login;   
+//             localStorage.setItem('collabs', JSON.stringify(input));
+//             // console.log(input[0].login)
+//             $.each(input, function (i, item) {
+//                 console.log(item.login);
 
-                $("#collabs").append(`<div>${item.login}</div>`);
-                //$("#collabs").append(item.login)  //toying with 
-                ;
+//                 $("#collabs").append(`<div>${item.login}</div>`);
+//                 //$("#collabs").append(item.login)  //toying with 
+//                 ;
             });
         });
     });
@@ -109,89 +132,106 @@ $(document).ready(() => {
 //Ernesto working on Wall content for Homie repos
 
 //step 1  get homies from local storage
-// var collabs = JSON.parse(localStorage.getItem('collabs'))
+var collabs = JSON.parse(localStorage.getItem('collabs'))
   
 
-//     let totalcount = 1
-//     collabs.forEach(element => {
+    let totalcount = 0
+    collabs.forEach(element => {
         
         
-//         console.log(element.login)
-//         gitHub_GetUserRepos_Async(element.login).then((repos) => {  
-            
-            
-//             for(var i = 0; i < repos.length; i++)  {      
-//                 console.log("homie: "+repos[i].owner.login);
-//                 console.log("repo name: "+repos[i].name);
-//                 console.log("repo description: "+repos[i].description);
-//                 console.log("repo created: "+repos[i].created_at);
-//                 console.log("repo url: "+repos[i].svn_url);
-//                 console.log("repo watchers: "+repos[i].watchers_count);
-//                 try{
-//                 console.log(`readme url: https://raw.githubusercontent.com/${repos[i].owner.login}/${repos[i].name}/${repos[i].default_branch}/README.md`);
-//                 }
-//                 catch (err) {
-//                   console.log("readme does not exit")
-//                }
-                
-            
-//                 gitHub_GetReadme_MD_Async2(`${repos[i].owner.login}`, `${repos[i].name}`, `${repos[i].default_branch}`).then((readme) => { 
+        console.log(element.login)
+        ////////////////////////////////////////
+        gitHub_GetUserRepos_Async(element.login).then((repos) => {
+
+
+            for (var i = 0; i < repos.length; i++) {
+                console.log("homie: " + repos[i].owner.login);
+                console.log("repo name: " + repos[i].name);
+                console.log("repo description: " + repos[i].description);
+                console.log("repo created: " + repos[i].created_at);
+                console.log("repo url: " + repos[i].svn_url);
+                console.log("repo watchers: " + repos[i].watchers_count);
+                try {
+                    console.log(`readme url: https://raw.githubusercontent.com/${repos[i].owner.login}/${repos[i].name}/${repos[i].default_branch}/README.md`);
+                }
+                catch (err) {
+                    console.log("readme does not exit")
+                }
         
-//                   console.log(readme.toString())
-
-//                   repoText = readme.toString().split()
-//                   console.log(typeof repoText)
-
-//                   var html = `<tr>
-//                       <th scope="row">${totalcount}</th>
-//                             <td>
-
-//                                 <div id="HomiesRepo" class="card">
-//                                   <div class="card-body">
-//                                   <h5 class="repo-title">Repo: ${repos[i].name}</h5>
-//                                   <h6 class="repo-subtitle mb-2 text-muted">Description: ${repos[i].description}</h6>
-//                                   <h5 class="repo-title">Owner: ${repos[i].owner.login}</h5>
-//                                   <h5 class="repo-title">Date: ${repos[i].created_at}</h5>
-//                                   <h5 class="repo-title">Link: ${repos[i].svn_url}</h5>
-//                                   <h5 class="repo-title">Watch Count: ${repos[i].watchers_count}</h5>
-                                    
-//                                   </div>
-//                                 </div>
-
-//                                 </td>
-//                                 <td>
-                            
-
-//                                 <div id="onlineHomies" class="card">
-//                                   <div class="card-body">
-//                                     <h5 class="repo-title">ReadMe</h5>
-                                    
-//                                     <section id="readme" class="card-text text-center">
-//                                     <p>${repoText}</p>
-//                                     </section>
-//                                   </div>
-//                                 </div>
+               let htmlrepoinfo = `<h5 class="repo-title">Repo: ${repos[i].name}</h5>
+               <h6 class="repo-subtitle mb-2 text-muted">Description: ${repos[i].description}</h6>
+               <h5 class="repo-title">Owner: ${repos[i].owner.login}</h5>
+               <h5 class="repo-title">Date: ${repos[i].created_at}</h5>
+               <h5 class="repo-title">Link: ${repos[i].svn_url}</h5>
+               <h5 class="repo-title">Watch Count: ${repos[i].watchers_count}</h5>`
+               console.log(htmlrepoinfo)
+               totalcount++  
+                console.log(totalcount)
 
 
-//                           </td>`
-
-
-//                 $(".HomieReposTBLBody").append(html)
+                gitHub_GetReadme_MD_Async2(`${repos[i].owner.login}`, `${repos[i].name}`, `${repos[i].default_branch}`).then((readme) => {
+                    
+                    console.log(readme.toString())
+                  //  console.log(`${repos[i].name}`)
+        
+                    repoText = readme.toString().split()
+                    console.log(readme)
+        
+        
+                    var html = `<tr>
+                    <th scope="row"></th>
+                          <td>
+        
+                              <div id="HomiesRepo" class="card">
+                                <div class="card-body">
+                                ${htmlrepoinfo}
+                                  
+                                </div>
+                              </div>
+        
+                              </td>
+                              <td>
+                          
+        
+                              <div id="onlineHomies" class="card">
+                                <div class="card-body">
+                                  <h5 class="repo-title">ReadMe</h5>
+                                  
+                                  <section id="readme" class="card-text text-center">
+                                  <p>${repoText}</p>
+                                  </section>
+                                </div>
+                              </div>
+        
+        
+                        </td>`
+        
+                        $(".HomieReposTBLBody").append(html)
+        
+        
+        
+                }) //asyn function
+        
+        
+        
+        
+        
+        
+                 
                 
+        
+            } //end for loop
+        
+        
+            
+        
+        
+        
+        })
 
-                                                                 
-//               });
 
-                
-
-
-
-//                 totalcount++  
-
-
-//             }//closes forloop
-//         });
-//     });
+        ////////////////////////////////////////
+    });
 
 
 //step 2 append content to wall table

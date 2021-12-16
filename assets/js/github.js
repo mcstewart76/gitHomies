@@ -57,7 +57,7 @@ async function gitHub_GetFollowing_Async(githubuser){
 
 
 async function gitHub_GetUserRepos_Async(githubuser){
-    var url = 'https://api.github.com/users/'+githubuser+'/repos'
+    var url = 'https://api.github.com/users/'+githubuser+'/repos?sort=pushed&per_page=4'
 
     try {
     	const response = await fetch(url)
@@ -100,14 +100,21 @@ async function gitHub_GetReadme_MD_Async2(githubuser, repo, branch){
     var url = `https://raw.githubusercontent.com/${githubuser}/${repo}/${branch}/README.md`
     // console.log(url)
     let response = await fetch(url)
+    if(response.ok){
     let readmeMD = await response.text();
     // console.log(githubCollab)
-    return readmeMD
+    return  readmeMD
+    }
+    else {return "No readme Found"}
     }
     catch (err) {
         console.log(err)
+        return  "error"
      }
+    
+    
 }
+
 
 
 
