@@ -145,7 +145,7 @@ var collabs = JSON.parse(localStorage.getItem('collabs'))
                totalcount++  
                 console.log(totalcount)
 
-                
+
                 gitHub_GetReadme_MD_Async2(`${repos[i].owner.login}`, `${repos[i].name}`, `${repos[i].default_branch}`).then((readme) => {
                     
                     console.log(readme.toString())
@@ -156,7 +156,7 @@ var collabs = JSON.parse(localStorage.getItem('collabs'))
         
         
                     var html = `<tr>
-                    <th scope="row">${totalcount}</th>
+                    <th scope="row"></th>
                           <td>
         
                               <div id="HomiesRepo" class="card">
