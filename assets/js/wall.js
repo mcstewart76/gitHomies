@@ -52,6 +52,17 @@ $("#SearchHomieBTN").on("click", function(event){
                 console.log("homie added")
                 if($(`#${login_name}`).length === 0){
                     $("#collabs").append(`<div id="${login_name}">${login_name}</div>`);
+                    gitHub_GetUserData_Async(`${login_name}`).then((input) => {
+                        // console.log(input)
+                            login_name = input.login;
+                            console.log(login_name)
+                        var itemsGathered = JSON.parse(localStorage.getItem("collabs"))
+                   console.log(itemsGathered)
+                   itemsGathered.push(input)
+                   localStorage.setItem("collabs", JSON.stringify(itemsGathered))
+                            
+                    });
+                   
                 }else{
                 var existHomie = ` <div class="btn btn-sm add-friend my-2">${login_name} is already a homie</div>`
                 $("#homieBtns").empty();
@@ -88,7 +99,7 @@ $("#GitLab-Search").on("click", function(event){
     $("#GitHub-Search").removeClass("githubHovered")
     $("#GitLab-Search").addClass("gitlabHovered")
     });
-//var gitButts = document.querySelectorAll('label button');
+
 //appends username to top right of wall page, allows onclick to redirect to profile page
 $("#usernamebtn").text(localStorage.getItem('idName'))
 $("#usernamebtn").on("click", function(event){
@@ -102,10 +113,13 @@ $("#usernamebtn").on("click", function(event){
 $(document).ready(function(e) {
 var item = localStorage.getItem('idName')
 gitHub_GetRepoCollabs_Async(item).then((input) => {
-    // collabs = input.login;   
-    localStorage.setItem('collabs', JSON.stringify(input)); 
+    // collabs = input.login;
+    if(localStorage.getItem("collabs").length <= 0 ){
+      localStorage.setItem('collabs', JSON.stringify(input));   
+    }   
+    
     // console.log(input[0].login)
-    $.each(input, function(i, item) {
+    collabs.forEach(item => {
         console.log(item.login);
         var login_name = item.login;
         $("#collabs").append(`<div id="${login_name}">${item.login}</div>`);
@@ -181,7 +195,7 @@ var collabs = JSON.parse(localStorage.getItem('collabs'))
         
         
                     var html = `<tr>
-                    <th scope="row">${totalcount}</th>
+                    <th scope="row"></th>
                           <td>
         
                               <div id="HomiesRepo" class="card">
