@@ -11,5 +11,5 @@ $("#registerbtn").on("click", function(event){
    });
 $("#signinbtn").on("click", function(event){
        event.preventDefault();
-       window.location.href = "loginPageUI.html";
+       window.location.href = "logInPageUI.html";
 });
