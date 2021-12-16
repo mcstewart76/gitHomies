@@ -5,11 +5,8 @@ var userName = localStorage.getItem('idName');
 var proPic = document.getElementById("propic");
 var userRepos = document.getElementById("repowallcard");
 
-// adds event listener to button id
-// searchButton.addEventListener("click", function() {
-//     searchfunction(localStorage.getItem('idName'))
-// })
 
+//passes variable to search function
 searchfunction(localStorage.getItem('idName'))
 
 
