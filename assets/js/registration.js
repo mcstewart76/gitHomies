@@ -3,7 +3,7 @@ var usernameTb = $('#exampleUsername1')
 var usernameHelpLBL = $('#usernameHelp')
 var passwordTb = $('#exampleInputPassword1')
 var registrationBtn = $('#registrationbtn')
-
+//On click event for registration
 
 registrationBtn.on('click',function(event){
     
@@ -28,7 +28,7 @@ registrationBtn.on('click',function(event){
     else if(IsUserRegistered(usernameTb.val())===0){
         setLocalStorage(usernameTb.val(),passwordTb.val())
         console.log("user registered")
-        window.location.href = "./logInPageUI.html";
+        window.location.href = "./loginPageUI.html";
         
     }
 
