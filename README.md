@@ -15,7 +15,9 @@ This webpage includes a unique session authentication, utilizes API calls from g
 
 >**Picture of the site**
 <img src="https://github.com/mcstewart76/gitHomies/raw/main/assets/images/gitHomiesDisplayPhoto.JPG">
+
 ![image](https://user-images.githubusercontent.com/90533949/160325427-a7544f14-fba2-402b-9325-e6e8e9daf312.png)
+
 ![image](https://user-images.githubusercontent.com/90533949/160325473-448eba84-65ee-4741-acc8-70203292af51.png)
  
 ## Technologies Used
