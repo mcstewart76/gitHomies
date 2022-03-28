@@ -10,7 +10,7 @@ A user provided that they wanted a social media collaboration tool for developer
 
 ## gitHomies
 
-[Check it out here!](gh.gitHomies.com)
+<a href="gh.gitHomies.com" target="_blank">Check it out here!</a>
 
 This webpage includes a unique session authentication, utilizes API calls from gitHub and gitLab
 
