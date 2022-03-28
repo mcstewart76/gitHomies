@@ -12,10 +12,9 @@ A user provided that they wanted a social media collaboration tool for developer
 
 [Check it out here!](gh.gitHomies.com)
 
->**Picture of the site**
-
 This webpage includes a unique session authentication, utilizes API calls from gitHub and gitLab
 
+>**Picture of the site**
 <img src="https://github.com/mcstewart76/gitHomies/raw/main/assets/images/gitHomiesDisplayPhoto.JPG">
 
 ## Technologies Used
@@ -26,7 +25,7 @@ This webpage includes a unique session authentication, utilizes API calls from g
 
 ## Contact Info
 
-Contact at 
+Contact at [mcstewart76@gmail.com](mcstewart76@gmail.com).
 
 ## License
     This project is licensed under the MIT license.
