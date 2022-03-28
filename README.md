@@ -9,7 +9,7 @@ A user provided that they wanted a social media collaboration tool for developer
 * Profile page that populates gitHub information  
 
 ## gitHomies
-[Check it out here!](gh.gitHomies.com){:target="_blank"}
+[Check it out here!](https://gh.gitHomies.com)
 
 This webpage includes a unique session authentication, utilizes API calls from gitHub and gitLab
 
