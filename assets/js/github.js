@@ -123,7 +123,7 @@ async function gitHub_GetReadme_MD_Async2(githubuser, repo, branch){
 
 async function showAvatar(user) {
 
-    
+    //test
     // read github user
     let githubResponse = await fetch(`https://api.github.com/users/${user}`);
     let githubUser = await githubResponse.json();
